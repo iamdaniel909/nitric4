@@ -37,7 +37,7 @@ public class BroomApplication {
 		broom.setBroomColour("Hazelnut");
 		menuService.addBroom(broom);
 
-		Broom = new Broom();
+		broom = new Broom();
 		broom.setBroomName("Firebolt 2");
 		broom.setBroomColour("Hickory");
 		menuService.addBroom(broom);

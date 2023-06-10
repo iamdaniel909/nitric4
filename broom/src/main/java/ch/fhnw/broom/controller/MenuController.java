@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,7 +20,7 @@ public class MenuController {
     private MenuService menuService;
 
     @GetMapping(path="/broom/{id}", produces = "application/json")
-    public ResponseEntity getBroom(@PathVariable("id") Long id) {
+    public ResponseEntity<Broom> getBroom(@PathVariable("id") Long id) {
         try{
             Broom broom = menuService.findBroomById(id);
             return ResponseEntity.ok(broom);
@@ -35,11 +34,11 @@ public class MenuController {
     public List<Broom> getBroomList() {
         List<Broom> broomList = menuService.getAllBrooms();
 
-        return pbroomList;
+        return broomList;
     }
 
     @PostMapping(path="/broom", consumes="application/json", produces = "application/json")
-    public ResponseEntity addBroom(@RequestBody Broom broom) {
+    public ResponseEntity<Broom> addBroom(@RequestBody Broom broom) {
         try{
             broom = menuService.addBroom(broom);
             
@@ -47,14 +46,14 @@ public class MenuController {
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
 
         }
-        return ResponseEntity.ok(Broom);
+        return ResponseEntity.ok(broom);
         
     }
 
     @GetMapping(path="", produces = "application/json")
-    public Menu getMenu(@RequestParam(value="location") String location) {
+    public Menu getMenu(@RequestParam(value="house") String house) {
 
-        return menuService.getMenuByLocation(location);
+        return menuService.getMenuByHouse(house);
     }
     
 }
