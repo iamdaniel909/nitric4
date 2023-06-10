@@ -1,13 +1,13 @@
-package ch.fhnw.pizza.business.service;
+package ch.fhnw.broom.business.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ch.fhnw.pizza.data.domain.Menu;
-import ch.fhnw.pizza.data.domain.Pizza;
-import ch.fhnw.pizza.data.repository.PizzaRepository;
+import ch.fhnw.broom.data.domain.Menu;
+import ch.fhnw.broom.data.domain.Pizza;
+import ch.fhnw.broom.data.repository.PizzaRepository;
 
 @Service
 public class MenuService {

@@ -1,4 +1,4 @@
-package ch.fhnw.pizza.data.domain;
+package ch.fhnw.broom.data.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,19 +9,19 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "pizza")
-public class Pizza {
+@Table(name = "broom")
+public class Broom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "pizza_toppings")
-    private String pizzaToppings;
+    @Column(name = "broom_colour")
+    private String broomColour;
 
-    @Column(name = "pizza_name")
-    private String pizzaName;
+    @Column(name = "broom_name")
+    private String broomName;
 
     @ManyToOne
     private Menu menu;
@@ -34,20 +34,20 @@ public class Pizza {
         this.id = id;
     }
 
-    public String getPizzaToppings() {
-        return pizzaToppings;
+    public String getBroomColour() {
+        return broomColour;
     }
 
-    public void setPizzaToppings(String pizzaToppings) {
-        this.pizzaToppings = pizzaToppings;
+    public void setBroomColour(String broomColour) {
+        this.broomColour = broomColour;
     }
 
-    public String getPizzaName() {
-        return pizzaName;
+    public String getBroomName() {
+        return broomName;
     }
 
-    public void setPizzaName(String pizzaName) {
-        this.pizzaName = pizzaName;
+    public void setBroomName(String broomName) {
+        this.broomName = broomName;
     } 
     
 }

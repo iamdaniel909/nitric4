@@ -1,4 +1,4 @@
-package ch.fhnw.pizza;
+package ch.fhnw.broom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -6,25 +6,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.fhnw.pizza.business.service.MenuService;
-import ch.fhnw.pizza.data.domain.Pizza;
+import ch.fhnw.broom.business.service.MenuService;
+import ch.fhnw.broom.data.domain.Broom;
 import jakarta.annotation.PostConstruct;
 
 @SpringBootApplication
 @RestController
-public class PizzaApplication {
+public class BroomApplication {
 
 	@Autowired
 	private MenuService menuService;
 
 	public static void main(String[] args) {
-		SpringApplication.run(PizzaApplication.class, args);
+		SpringApplication.run(BroomApplication.class, args);
 	}
 
 	@GetMapping(value="/")
     public String getWelcomeString() {
         
-        return "Pizza Takeaway Service, welcome!";
+        return "Ye ole broom shoppe, welcome!";
     } 
 
 	// Use this method to initialize placeholder data without using Postman
@@ -32,15 +32,15 @@ public class PizzaApplication {
 	// To resolve the error, delete the file and restart the application
 	@PostConstruct
 	private void initPlaceholderData() throws Exception {
-		Pizza pizza = new Pizza();
-		pizza.setPizzaName("Margherita");
-		pizza.setPizzaToppings("Tomato sauce, mozzarella, basil");
-		menuService.addPizza(pizza);
+		Broom broom = new Broom();
+		broom.setBroomName("Nimbus 3000");
+		broom.setBroomColour("Hazelnut");
+		menuService.addBroom(broom);
 
-		pizza = new Pizza();
-		pizza.setPizzaName("Funghi");
-		pizza.setPizzaToppings("Tomato sauce, mozzarella, mushrooms");
-		menuService.addPizza(pizza);
+		Broom = new Broom();
+		broom.setBroomName("Firebolt 2");
+		broom.setBroomColour("Hickory");
+		menuService.addBroom(broom);
 		
 	}
 

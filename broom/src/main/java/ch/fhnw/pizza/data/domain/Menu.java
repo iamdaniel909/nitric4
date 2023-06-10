@@ -1,4 +1,4 @@
-package ch.fhnw.pizza.data.domain;
+package ch.fhnw.broom.data.domain;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class Menu {
     private Long id;
 
     @OneToMany(mappedBy = "menu")
-    private List<Pizza> pizzaList;
+    private List<Broom> broomList;
 
     private String currentOffer;
 
@@ -28,12 +28,12 @@ public class Menu {
         this.id = id;
     }
 
-    public List<Pizza> getPizzaList() {
-        return pizzaList;
+    public List<Broom> getBroomList() {
+        return broomList;
     }
 
-    public void setPizzaList(List<Pizza> pizzaList) {
-        this.pizzaList = pizzaList;
+    public void setBroomList(List<Broom> broomList) {
+        this.broomList = broomList;
     }
 
     public String getCurrentOffer() {

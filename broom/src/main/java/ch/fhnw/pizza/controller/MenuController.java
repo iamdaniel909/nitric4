@@ -1,8 +1,8 @@
-package ch.fhnw.pizza.controller;
+package ch.fhnw.broom.controller;
 
-import ch.fhnw.pizza.business.service.MenuService;
-import ch.fhnw.pizza.data.domain.Menu;
-import ch.fhnw.pizza.data.domain.Pizza;
+import ch.fhnw.broom.business.service.MenuService;
+import ch.fhnw.broom.data.domain.Menu;
+import ch.fhnw.broom.data.domain.Broom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,34 +20,34 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
-    @GetMapping(path="/pizza/{id}", produces = "application/json")
-    public ResponseEntity getPizza(@PathVariable("id") Long id) {
+    @GetMapping(path="/broom/{id}", produces = "application/json")
+    public ResponseEntity getBroom(@PathVariable("id") Long id) {
         try{
-            Pizza pizza = menuService.findPizzaById(id);
-            return ResponseEntity.ok(pizza);
+            Broom broom = menuService.findBroomById(id);
+            return ResponseEntity.ok(broom);
         }
         catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
 
-    @GetMapping(path="/pizza", produces = "application/json")
-    public List<Pizza> getPizzaList() {
-        List<Pizza> pizzaList = menuService.getAllPizzas();
+    @GetMapping(path="/broom", produces = "application/json")
+    public List<Broom> getBroomList() {
+        List<Broom> broomList = menuService.getAllBrooms();
 
-        return pizzaList;
+        return pbroomList;
     }
 
-    @PostMapping(path="/pizza", consumes="application/json", produces = "application/json")
-    public ResponseEntity addPizza(@RequestBody Pizza pizza) {
+    @PostMapping(path="/broom", consumes="application/json", produces = "application/json")
+    public ResponseEntity addBroom(@RequestBody Broom broom) {
         try{
-            pizza = menuService.addPizza(pizza);
+            broom = menuService.addBroom(broom);
             
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
 
         }
-        return ResponseEntity.ok(pizza);
+        return ResponseEntity.ok(Broom);
         
     }
 
