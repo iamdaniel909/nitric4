@@ -6,49 +6,55 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ch.fhnw.broom.data.domain.Menu;
-import ch.fhnw.broom.data.domain.Pizza;
-import ch.fhnw.broom.data.repository.PizzaRepository;
+import ch.fhnw.broom.data.domain.Broom;
+import ch.fhnw.broom.data.repository.BroomRepository;
 
 @Service
 public class MenuService {
 
     @Autowired
-    private PizzaRepository pizzaRepository;
+    private BroomRepository broomRepository;
 
-    public Pizza findPizzaById(Long id) {
-        Pizza pizza = pizzaRepository.findById(id).get();
-        return pizza;
+    public Broom findBroomById(Long id) {
+        Broom broom = broomRepository.findById(id).get();
+        return broom;
     }
 
-    public List<Pizza> getAllPizzas() {
-        List<Pizza> pizzaList = pizzaRepository.findAll();
-        return pizzaList;
+    public List<Broom> getAllBrooms() {
+        List<Broom> broomList = broomRepository.findAll();
+        return broomList;
     }
 
-    public Pizza addPizza(Pizza pizza) throws Exception {
-        if(pizza.getPizzaName() != null) {
-            if (pizzaRepository.findByPizzaName(pizza.getPizzaName()) == null)
-                return pizzaRepository.save(pizza);
-            throw new Exception("Pizza " + pizza.getPizzaName() + " already exists");
+    public Broom addBroom(Broom broom) throws Exception {
+        if(broom.getBroomName() != null) {
+            if (broomRepository.findByBroomName(broom.getBroomName()) == null)
+                return broomRepository.save(broom);
+            throw new Exception("Broom " + broom.getBroomName() + " already exists");
         }
-        throw new Exception("Invalid pizza name ");
+        throw new Exception("Invalid Broom name ");
     }
 
     //Business Logic to get current offer according to the location of the user requesting the menu
-    private String getCurrentOffer(String location) {
+    private String getCurrentOffer(String house) {
         String currentOffer = "No special offer";
-        if("Basel".equalsIgnoreCase(location))
-            currentOffer = "10% off on all large pizzas!!!";
-        else if("Brugg".equalsIgnoreCase(location))
-            currentOffer = "Two for the price of One on all small pizzas!!!";
+        if("Griffindor".equalsIgnoreCase(house))
+            currentOffer = "10% discount on all brooms";
+        else if("Slytherin".equalsIgnoreCase(house))
+            currentOffer = "15% discount on all brooms";
+        else if("Hufflepuff".equalsIgnoreCase(house))
+            currentOffer = "20% discount on all brooms";
+        else if("Ravenclaw".equalsIgnoreCase(house))
+            currentOffer = "25% discount on all brooms";
         return currentOffer;
     }
 
-    public Menu getMenuByLocation(String location) {
-        String currentOffer = getCurrentOffer(location);
-        List<Pizza> pizzaList = getAllPizzas();
+
+
+    public Menu getMenuByHouse(String house) {
+        String currentOffer = getCurrentOffer(house);
+        List<Broom> broomList = getAllBrooms();
         Menu menu = new Menu();
-        menu.setPizzaList(pizzaList);
+        menu.setBroomList(broomList);
         menu.setCurrentOffer(currentOffer);
         return menu;
     }
