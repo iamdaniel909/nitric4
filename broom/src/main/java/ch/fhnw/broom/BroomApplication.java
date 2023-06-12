@@ -33,6 +33,7 @@ public class BroomApplication {
 	@PostConstruct
 	private void initPlaceholderData() throws Exception {
 		Broom broom = new Broom();
+		broom.setId(1);
 		broom.setBroomName("Nimbus 3000");
 		broom.setBroomColour("Hazelnut");
 		menuService.addBroom(broom);
