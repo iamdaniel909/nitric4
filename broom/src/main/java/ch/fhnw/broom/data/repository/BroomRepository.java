@@ -11,5 +11,5 @@ import ch.fhnw.broom.data.domain.Broom;
 //JpaRepository should be typed to the domain class and an ID type
 public interface BroomRepository extends JpaRepository<Broom, Long> {
     Broom findByBroomName(String BroomName);
-    List<Broom> findAllByBroomColoursContainsIgnoreCase(String colour);
+    //List<Broom> findAllByBroomColoursContainsIgnoreCase(String colour);
 }
