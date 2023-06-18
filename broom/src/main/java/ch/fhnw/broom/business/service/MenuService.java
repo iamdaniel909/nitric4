@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ch.fhnw.broom.data.domain.Menu;
+import ch.fhnw.broom.data.domain.Accessory;
 import ch.fhnw.broom.data.domain.Broom;
 import ch.fhnw.broom.data.repository.BroomRepository;
+import ch.fhnw.broom.data.repository.AccessoryRepository;
 
 @Service
 public class MenuService {
@@ -59,5 +61,26 @@ public class MenuService {
         return menu;
     }
 
+    @Autowired
+    private AccessoryRepository accessoryRepository;
+
+    public Accessory findAccessoryById(Long id) {
+        Accessory accessory = accessoryRepository.findById(id).get();
+        return accessory;
+    }
+
+    public List<Accessory> getAllAccessories() {
+        List<Accessory> accessoryList = accessoryRepository.findAll();
+        return accessoryList;
+    }
+
+    public Accessory addAccessory(Accessory accessory) throws Exception {
+        if(accessory.getAccessoryName() != null) {
+            if (accessoryRepository.findByAccessoryName(accessory.getAccessoryName()) == null)
+                return accessoryRepository.save(accessory);
+            throw new Exception("Accessory " + accessory.getAccessoryName() + " already exists");
+        }
+        throw new Exception("Invalid Accessory name ");
+    }
     
 }

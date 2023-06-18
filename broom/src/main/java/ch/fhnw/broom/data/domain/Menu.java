@@ -36,6 +36,14 @@ public class Menu {
         this.broomList = broomList;
     }
 
+    public List<Accessory> getAccessoryList() {
+        return accessoryList;
+    }
+
+    public void setAccessoryList(List<Accessory> accessoryList) {
+        this.accessoryList = accessoryList;
+    }
+
     public String getCurrentOffer() {
         return currentOffer;
     }

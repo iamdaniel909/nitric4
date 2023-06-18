@@ -23,6 +23,10 @@ public class Broom {
     @Column(name = "broom_name")
     private String broomName;
 
+    @Column(name = "broom_price")
+    private Double broomPrice;
+
+
     @ManyToOne
     private Menu menu;
 
@@ -49,5 +53,13 @@ public class Broom {
     public void setBroomName(String broomName) {
         this.broomName = broomName;
     } 
+
+    public Double getBroomPrice() {
+        return broomPrice;
+    }
+
+    public void setBroomPrice(Double broomPrice) {
+        this.broomPrice = broomPrice;
+    }
     
 }
