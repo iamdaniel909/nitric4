@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ch.fhnw.broom.business.service.MenuService;
 import ch.fhnw.broom.data.domain.Broom;
+import ch.fhnw.broom.data.domain.Accessory;
 import jakarta.annotation.PostConstruct;
 
 @SpringBootApplication
@@ -45,6 +46,12 @@ public class BroomApplication {
 		broom.setBroomColour("Hickory");
 		broom.setBroomPrice(2000);
 		menuService.addBroom(broom);
+
+		Accessory accessory = new Accessory();
+		accessory.setId(1);
+		accessory.setAccessoryName("Broomstick Servicing Kit");
+		accessory.setAccessoryPrice(100);
+		menuService.addAccessory(accessory);
 		
 	}
 

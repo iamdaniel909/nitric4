@@ -15,7 +15,7 @@ public class Accessory{
 @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name = "accessory_name")
     private String accessoryName;
@@ -26,11 +26,11 @@ public class Accessory{
     @ManyToOne
     private Menu menu;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

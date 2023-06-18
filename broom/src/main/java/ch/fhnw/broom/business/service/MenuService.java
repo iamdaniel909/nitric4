@@ -14,6 +14,8 @@ import ch.fhnw.broom.data.repository.AccessoryRepository;
 @Service
 public class MenuService {
 
+//bean for broom repository
+
     @Autowired
     private BroomRepository broomRepository;
 
@@ -60,6 +62,8 @@ public class MenuService {
         menu.setCurrentOffer(currentOffer);
         return menu;
     }
+
+    //bean for accessory repository
 
     @Autowired
     private AccessoryRepository accessoryRepository;
