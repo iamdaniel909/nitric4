@@ -18,6 +18,9 @@ public class Menu {
     @OneToMany(mappedBy = "menu")
     private List<Broom> broomList;
 
+    @OneToMany(mappedBy = "menu")
+    private List<Accessory> accessoryList;
+
     private String currentOffer;
 
     public Long getId() {
