@@ -24,7 +24,7 @@ public class Broom {
     private String broomName;
 
     @Column(name = "broom_price")
-    private Double broomPrice;
+    private Integer broomPrice;
 
 
     @ManyToOne
@@ -54,11 +54,11 @@ public class Broom {
         this.broomName = broomName;
     } 
 
-    public Double getBroomPrice() {
+    public Integer getBroomPrice() {
         return broomPrice;
     }
 
-    public void setBroomPrice(Double broomPrice) {
+    public void setBroomPrice(Integer broomPrice) {
         this.broomPrice = broomPrice;
     }
     

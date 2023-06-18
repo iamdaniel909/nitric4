@@ -36,12 +36,14 @@ public class BroomApplication {
 		broom.setId(1);
 		broom.setBroomName("Nimbus 3000");
 		broom.setBroomColour("Hazelnut");
+		broom.setBroomPrice(1000);
 		menuService.addBroom(broom);
 
 		broom = new Broom();
 		broom.setId(2);
 		broom.setBroomName("Firebolt 2");
 		broom.setBroomColour("Hickory");
+		broom.setBroomPrice(2000);
 		menuService.addBroom(broom);
 		
 	}
