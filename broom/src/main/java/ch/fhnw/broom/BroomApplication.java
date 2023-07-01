@@ -57,7 +57,7 @@ public class BroomApplication {
 		Robe robe = new Robe();
 		robe.setId(1);
 		robe.setRobeSize("M");
-		robe.setRobeColour(robeColour:"Black");
+		robe.setRobeColour("Black");
 		robe.setRobePrice(100);
 		
 	}

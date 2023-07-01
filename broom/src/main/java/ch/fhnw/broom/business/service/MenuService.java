@@ -107,7 +107,7 @@ public class MenuService {
     public Robe addRobe(Robe robe) throws Exception {
         if(robe.getRobeSize() != null) {
             if (robeRepository.findByRobeSize(robe.getRobeSize()) == null)
-                return accessoryRepository.save(robe);
+                return robeRepository.save(robe);
             throw new Exception("Robe " + robe.getRobeSize() + " already exists");
         }
         throw new Exception("Invalid Robe size ");
