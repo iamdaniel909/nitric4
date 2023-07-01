@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import ch.fhnw.broom.data.domain.Menu;
 import ch.fhnw.broom.data.domain.Accessory;
 import ch.fhnw.broom.data.domain.Broom;
+import ch.fhnw.broom.data.domain.Robe;
 import ch.fhnw.broom.data.repository.BroomRepository;
 import ch.fhnw.broom.data.repository.AccessoryRepository;
+import ch.fhnw.broom.data.repository.RobeRepository;
 
 @Service
 public class MenuService {
