@@ -42,7 +42,7 @@ public class Robe {
         return robeColour;
     }
 
-    public void setBroomColour(String robeColour) {
+    public void setRobeColour(String robeColour) {
         this.robeColour = robeColour;
     }
 
@@ -58,7 +58,7 @@ public class Robe {
         return robePrice;
     }
 
-    public void setBroomPrice(Integer robePrice) {
+    public void setRobePrice(Integer robePrice) {
         this.robePrice = robePrice;
     }
 }

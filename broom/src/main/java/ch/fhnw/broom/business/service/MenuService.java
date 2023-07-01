@@ -86,5 +86,30 @@ public class MenuService {
         }
         throw new Exception("Invalid Accessory name ");
     }
-    
+
+    //bean for robe repository
+
+    @Autowired
+    private RobeRepository robeRepository;
+
+    public Robe findRobeById(Long id) {
+        Robe robe = robeRepository.findById(id).get();
+        return robe;
+    }
+
+    public List<Robe> getAllRobes() {
+        List<Robe> robeList = robeRepository.findAll();
+        return robeList;
+    }
+
+    public Robe addRobe(Robe robe) throws Exception {
+        if(robe.getRobeSize() != null) {
+            if (robeRepository.findByRobeSize(robe.getRobeSize()) == null)
+                return accessoryRepository.save(robe);
+            throw new Exception("Robe " + robe.getRobeSize() + " already exists");
+        }
+        throw new Exception("Invalid Robe size ");
+    }
+
+
 }

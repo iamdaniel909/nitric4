@@ -5,6 +5,7 @@ import ch.fhnw.broom.data.domain.Menu;
 import jakarta.persistence.Access;
 import ch.fhnw.broom.data.domain.Broom;
 import ch.fhnw.broom.data.domain.Accessory;
+import ch.fhnw.broom.data.domain.Robe;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -95,4 +96,37 @@ public class MenuController {
         return menuService.getMenuByHouse(house);
     }
     
+//get and post constructs for robe entity
+
+    @GetMapping(path="/robe/{id}", produces = "application/json")
+    public ResponseEntity<Robe> getRobe(@PathVariable("id") Long id) {
+        try{
+            Robe robe = menuService.findRobeBySize(id);
+            return ResponseEntity.ok(robe);
+        }
+        catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+    }
+
+    @GetMapping(path="/robe", produces = "application/json")
+    public List<Robe> getRobeList() {
+        List<Robe> robeList = menuService.getAllRobes();
+
+        return robeList;
+    }
+
+    @PostMapping(path="/robe", consumes="application/json", produces = "application/json")
+    public ResponseEntity<Robe> addRobe(@RequestBody Robe robe) {
+        try{
+            robe = menuService.addRobe(robe);
+            
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
+
+        }
+        return ResponseEntity.ok(robe);
+        
+    }
+
 }
