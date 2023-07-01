@@ -101,7 +101,7 @@ public class MenuController {
     @GetMapping(path="/robe/{id}", produces = "application/json")
     public ResponseEntity<Robe> getRobe(@PathVariable("id") Long id) {
         try{
-            Robe robe = menuService.findRobeBySize(id);
+            Robe robe = menuService.findRobeById(id);
             return ResponseEntity.ok(robe);
         }
         catch (Exception e) {
