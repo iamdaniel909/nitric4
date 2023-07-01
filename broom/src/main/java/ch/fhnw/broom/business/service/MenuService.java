@@ -105,12 +105,12 @@ public class MenuService {
     }
 
     public Robe addRobe(Robe robe) throws Exception {
-        if(robe.getRobeSize() != null) {
-            if (robeRepository.findByRobeSize(robe.getRobeSize()) == null)
+        if(robe.getRobeName() != null) {
+            if (robeRepository.findByRobeName(robe.getRobeName()) == null)
                 return robeRepository.save(robe);
-            throw new Exception("Robe " + robe.getRobeSize() + " already exists");
+            throw new Exception("Robe " + robe.getRobeName() + " already exists");
         }
-        throw new Exception("Invalid Robe size ");
+        throw new Exception("Invalid Robe name ");
     }
 
 

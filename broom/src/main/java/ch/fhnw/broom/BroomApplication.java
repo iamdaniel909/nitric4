@@ -56,9 +56,10 @@ public class BroomApplication {
 
 		Robe robe = new Robe();
 		robe.setId(1);
-		robe.setRobeSize("M");
+		robe.setRobeName("Invisibility Cloak");
 		robe.setRobeColour("Black");
 		robe.setRobePrice(100);
+		menuService.addRobe(robe);
 		
 	}
 

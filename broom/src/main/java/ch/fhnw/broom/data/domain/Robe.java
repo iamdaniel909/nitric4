@@ -20,8 +20,8 @@ public class Robe {
     @Column(name = "robe_colour")
     private String robeColour;
 
-    @Column(name = "robe_size")
-    private String robeSize;
+    @Column(name = "robe_name")
+    private String robeName;
 
     @Column(name = "robe_price")
     private Integer robePrice;
@@ -46,12 +46,12 @@ public class Robe {
         this.robeColour = robeColour;
     }
 
-    public String getRobeSize() {
-        return robeSize;
+    public String getRobeName() {
+        return robeName;
     }
 
-    public void setRobeSize(String robeSize) {
-        this.robeSize = robeSize;
+    public void setRobeName(String robeName) {
+        this.robeName = robeName;
     } 
 
     public Integer getRobePrize() {

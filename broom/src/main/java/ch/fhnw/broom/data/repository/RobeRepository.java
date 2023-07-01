@@ -10,6 +10,6 @@ import ch.fhnw.broom.data.domain.Robe;
 @Repository
 //JpaRepository should be typed to the domain class and an ID type
 public interface RobeRepository extends JpaRepository<Robe, Long> {
-    Robe findByRobeSize(String RobeSize);
+    Robe findByRobeName(String RobeName);
     //List<Broom> findAllByBroomColoursContainsIgnoreCase(String colour);
 }
