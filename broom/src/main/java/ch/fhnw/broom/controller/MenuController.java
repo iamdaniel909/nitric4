@@ -60,7 +60,7 @@ public class MenuController {
     @DeleteMapping(path = "/broom/{Id}")
     public ResponseEntity<Void> deleteBroom(@PathVariable(value = "Id") String broomId) {
         try {
-            menuService.deleteBroom(Integer.parseInt(broomId));
+            menuService.deleteBroom(Long.parseLong(broomId));
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
