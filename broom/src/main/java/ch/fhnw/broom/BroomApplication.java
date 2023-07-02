@@ -29,9 +29,8 @@ public class BroomApplication {
         return "Ye ole broom shoppe, welcome!";
     } 
 
-	// Use this method to initialize placeholder data without using Postman
-	// If you are persisting data in a file (see application.properties), initializing data that already exists will cause an error during starting the application
-	// To resolve the error, delete the file and restart the application
+	// placeholder data initializer for brooms, accessories and robes
+
 	@PostConstruct
 	private void initPlaceholderData() throws Exception {
 		Broom broom = new Broom();
@@ -172,61 +171,61 @@ public class BroomApplication {
 		robe.setRobePrice(100);
 		menuService.addRobe(robe);
 		
-robe = new Robe();
-robe.setId(2);
-robe.setRobeName("Phoenix Feather Robe");
-robe.setRobeColour("Crimson");
-robe.setRobePrice(150);
-menuService.addRobe(robe);
+		robe = new Robe();
+		robe.setId(2);
+		robe.setRobeName("Phoenix Feather Robe");
+		robe.setRobeColour("Crimson");
+		robe.setRobePrice(150);
+		menuService.addRobe(robe);
 
-robe = new Robe();
-robe.setId(3);
-robe.setRobeName("Dragon Scale Robe");
-robe.setRobeColour("Emerald");
-robe.setRobePrice(200);
-menuService.addRobe(robe);
+		robe = new Robe();
+		robe.setId(3);
+		robe.setRobeName("Dragon Scale Robe");
+		robe.setRobeColour("Emerald");
+		robe.setRobePrice(200);
+		menuService.addRobe(robe);
 
-robe = new Robe();
-robe.setId(4);
-robe.setRobeName("Moonstone Robe");
-robe.setRobeColour("Silver");
-robe.setRobePrice(120);
-menuService.addRobe(robe);
+		robe = new Robe();
+		robe.setId(4);
+		robe.setRobeName("Moonstone Robe");
+		robe.setRobeColour("Silver");
+		robe.setRobePrice(120);
+		menuService.addRobe(robe);
 
-robe = new Robe();
-robe.setId(5);
-robe.setRobeName("Enchanted Velvet Robe");
-robe.setRobeColour("Purple");
-robe.setRobePrice(180);
-menuService.addRobe(robe);
+		robe = new Robe();
+		robe.setId(5);
+		robe.setRobeName("Enchanted Velvet Robe");
+		robe.setRobeColour("Purple");
+		robe.setRobePrice(180);
+		menuService.addRobe(robe);
 
-robe = new Robe();
-robe.setId(6);
-robe.setRobeName("Starlight Silk Robe");
-robe.setRobeColour("Blue");
-robe.setRobePrice(250);
-menuService.addRobe(robe);
+		robe = new Robe();
+		robe.setId(6);
+		robe.setRobeName("Starlight Silk Robe");
+		robe.setRobeColour("Blue");
+		robe.setRobePrice(250);
+		menuService.addRobe(robe);
 
-robe = new Robe();
-robe.setId(7);
-robe.setRobeName("Gilded Gryffin Robe");
-robe.setRobeColour("Gold");
-robe.setRobePrice(300);
-menuService.addRobe(robe);
+		robe = new Robe();
+		robe.setId(7);
+		robe.setRobeName("Gilded Gryffin Robe");
+		robe.setRobeColour("Gold");
+		robe.setRobePrice(300);
+		menuService.addRobe(robe);
 
-robe = new Robe();
-robe.setId(8);
-robe.setRobeName("Shadowcaster Cloak");
-robe.setRobeColour("Obsidian");
-robe.setRobePrice(160);
-menuService.addRobe(robe);
+		robe = new Robe();
+		robe.setId(8);
+		robe.setRobeName("Shadowcaster Cloak");
+		robe.setRobeColour("Obsidian");
+		robe.setRobePrice(160);
+		menuService.addRobe(robe);
 
-robe = new Robe();
-robe.setId(9);
-robe.setRobeName("Whispering Winds Robe");
-robe.setRobeColour("Silver-Gray");
-robe.setRobePrice(140);
-menuService.addRobe(robe);
+		robe = new Robe();
+		robe.setId(9);
+		robe.setRobeName("Whispering Winds Robe");
+		robe.setRobeColour("Silver-Gray");
+		robe.setRobePrice(140);
+		menuService.addRobe(robe);
 
 
 	}

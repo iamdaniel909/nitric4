@@ -23,7 +23,7 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
-    //get and post constructs for broom entity
+    //get, post, put, delete mapping for broom entity
 
     @GetMapping(path="/broom/{id}", produces = "application/json")
     public ResponseEntity<Broom> getBroom(@PathVariable("id") Long id) {
@@ -68,7 +68,7 @@ public class MenuController {
     }
     
 
-    //get and post constructs for accessory entity
+  //get, post, put, delete mapping for accessory entity
 
     @GetMapping(path="/accessory/{id}", produces = "application/json")
     public ResponseEntity<Accessory> getAccessory(@PathVariable("id") Long id) {
@@ -101,7 +101,17 @@ public class MenuController {
         
     }
 
-    //get construct for house entity (NOT YET DEFINED)
+      @DeleteMapping(path = "/accessory/{Id}")
+    public ResponseEntity<Void> deleteAccessory(@PathVariable(value = "Id") String accessoryId) {
+        try {
+            menuService.deleteAccessory(Long.parseLong(accessoryId));
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+        return ResponseEntity.accepted().build();
+    }
+
+    //get construct for house entity (NOT USED IN FINAL VERSION DUE TO MISSING USER REGISTRATION)
 
     @GetMapping(path="", produces = "application/json")
     public Menu getMenu(@RequestParam(value="house") String house) {
@@ -109,7 +119,7 @@ public class MenuController {
         return menuService.getMenuByHouse(house);
     }
     
-//get and post constructs for robe entity
+    //get, post, put, delete mapping for robe entity
 
     @GetMapping(path="/robe/{id}", produces = "application/json")
     public ResponseEntity<Robe> getRobe(@PathVariable("id") Long id) {
@@ -140,6 +150,16 @@ public class MenuController {
         }
         return ResponseEntity.ok(robe);
         
+    }
+
+    @DeleteMapping(path = "/robe/{Id}")
+    public ResponseEntity<Void> deleteRobe(@PathVariable(value = "Id") String robeId) {
+        try {
+            menuService.deleteRobe(Long.parseLong(robeId));
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+        return ResponseEntity.accepted().build();
     }
 
 }

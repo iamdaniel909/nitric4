@@ -46,6 +46,7 @@ public class MenuService {
 	}
 
     //Business Logic to get current offer according to the location of the user requesting the menu
+
     private String getCurrentOffer(String house) {
         String currentOffer = "No special offer";
         if("Griffindor".equalsIgnoreCase(house))
@@ -94,6 +95,11 @@ public class MenuService {
         throw new Exception("Invalid Accessory name ");
     }
 
+     public void deleteAccessory(Long accessoryId)
+	{
+		broomRepository.deleteById(accessoryId);
+	}
+
     //bean for robe repository
 
     @Autowired
@@ -117,6 +123,11 @@ public class MenuService {
         }
         throw new Exception("Invalid Robe name ");
     }
+
+    public void deleteRobe(Long robeId)
+	{
+		broomRepository.deleteById(robeId);
+	}
 
 
 }
