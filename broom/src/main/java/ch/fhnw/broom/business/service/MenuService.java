@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+//import jakarta.validation.Valid;
 
 import ch.fhnw.broom.data.domain.Menu;
 import ch.fhnw.broom.data.domain.Accessory;
@@ -14,6 +16,7 @@ import ch.fhnw.broom.data.repository.AccessoryRepository;
 import ch.fhnw.broom.data.repository.RobeRepository;
 
 @Service
+@Validated
 public class MenuService {
 
 //bean for broom repository
@@ -39,6 +42,17 @@ public class MenuService {
         }
         throw new Exception("Invalid Broom name ");
     }
+
+    	public Broom editBroom(@Valid Broom broom, Long broomId) throws Exception {
+		if (broom.getId() == null) {
+			if (broomRepository.findByBroomName(broom.getBroomName()) == null) {
+				return broomRepository.save(broom);
+			}
+			throw new Exception("Name " + broom.getBroomName() + " already assigned.");
+		}
+		
+		
+	}
 
     public void deleteBroom(Long broomId)
 	{

@@ -56,6 +56,17 @@ public class MenuController {
         
     }
 
+    @PutMapping(path = "/broom/{Id}/", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Broom> putBroom(@RequestBody Broom broom, @PathVariable(value = "broomId") String broomId) {
+        try {
+            broom.setId(Integer.parseInt(broomId));
+            broom = menuService.editBroom(broom, Long.parseLong(broomId));
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+        return ResponseEntity.accepted().body(broom);
+    }
+
 
     @DeleteMapping(path = "/broom/{Id}")
     public ResponseEntity<Void> deleteBroom(@PathVariable(value = "Id") String broomId) {
