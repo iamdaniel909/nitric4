@@ -40,6 +40,11 @@ public class MenuService {
         throw new Exception("Invalid Broom name ");
     }
 
+    public void deleteBroom(Long broomId)
+	{
+		broomRepository.deleteById(broomId);
+	}
+
     //Business Logic to get current offer according to the location of the user requesting the menu
     private String getCurrentOffer(String house) {
         String currentOffer = "No special offer";

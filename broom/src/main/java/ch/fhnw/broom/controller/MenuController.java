@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -54,6 +55,18 @@ public class MenuController {
         return ResponseEntity.ok(broom);
         
     }
+
+
+    @DeleteMapping(path = "/broom/{Id}")
+    public ResponseEntity<Void> deleteBroom(@PathVariable(value = "Id") String broomId) {
+        try {
+            menuService.deleteBroom(Integer.parseInt(broomId));
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+        return ResponseEntity.accepted().build();
+    }
+    
 
     //get and post constructs for accessory entity
 
