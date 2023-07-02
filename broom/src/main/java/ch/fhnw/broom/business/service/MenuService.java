@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-//import jakarta.validation.Valid;
+import jakarta.validation.Valid;
 
 import ch.fhnw.broom.data.domain.Menu;
 import ch.fhnw.broom.data.domain.Accessory;
