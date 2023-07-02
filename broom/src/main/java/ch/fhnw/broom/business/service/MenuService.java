@@ -50,6 +50,7 @@ public class MenuService {
 			}
 			throw new Exception("Name " + broom.getBroomName() + " already assigned.");
 		}
+        return broom;
 		
 		
 	}
