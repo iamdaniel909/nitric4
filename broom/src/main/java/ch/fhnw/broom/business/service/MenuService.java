@@ -46,6 +46,7 @@ public class MenuService {
 	}
 
     //Business Logic to get current offer according to the location of the user requesting the menu
+    //NOT USED IN FINAL VERSION DUE TO LACK OF USER REGISTRATION
 
     private String getCurrentOffer(String house) {
         String currentOffer = "No special offer";
